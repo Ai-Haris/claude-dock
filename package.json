@@ -1,0 +1,51 @@
+{
+  "name": "claude-dock",
+  "productName": "Claude Dock",
+  "version": "1.0.0",
+  "description": "One floating agent on your desktop. Hover it, and every Claude account appears. By Haris AI.",
+  "main": "main.js",
+  "author": "Haris AI",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac",
+    "build:linux": "electron-builder --linux"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "ai.haris.claudedock",
+    "productName": "Claude Dock",
+    "directories": { "output": "dist", "buildResources": "build" },
+    "files": ["main.js", "preload.js", "renderer/**", "assets/**"],
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.ico",
+      "artifactName": "Claude-Dock-Setup.${ext}"
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": false,
+      "createDesktopShortcut": true,
+      "shortcutName": "Claude Dock"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "build/icon.png",
+      "category": "public.app-category.developer-tools",
+      "artifactName": "Claude-Dock.${ext}"
+    },
+    "dmg": { "title": "Claude Dock" },
+    "linux": {
+      "target": "AppImage",
+      "icon": "build/icon.png",
+      "category": "Utility",
+      "artifactName": "Claude-Dock.${ext}"
+    }
+  }
+}

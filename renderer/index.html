@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' file: data:; style-src 'self' 'unsafe-inline';" />
+<title>Claude Dock</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <svg class="net" id="net"></svg>
+  <div class="pulseLayer" id="pulseLayer"></div>
+  <div id="nodes"></div>
+
+  <div class="orb" id="orb">
+    <div class="aura"></div>
+    <div class="shock" id="shock"></div>
+    <div class="agentwrap" id="agent"></div>
+    <div class="orbtip">double-click&nbsp;→&nbsp;open all ⚡</div>
+  </div>
+
+  <!-- custom right-click menu -->
+  <div class="ctx" id="ctx"></div>
+
+  <!-- tiny input modal (add / rename) -->
+  <div class="modalwrap" id="modalwrap">
+    <div class="modal">
+      <div class="modal-title" id="modalTitle">Add a client</div>
+      <input class="modal-input" id="modalInput" type="text" maxlength="24" placeholder="e.g. Sierra" />
+      <div class="modal-hint" id="modalHint">One word — letters &amp; numbers</div>
+      <div class="modal-row">
+        <button class="btn ghost" id="modalCancel">Cancel</button>
+        <button class="btn primary" id="modalOk">Add</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
